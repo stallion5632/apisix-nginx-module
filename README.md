@@ -10,3 +10,29 @@
   + /configure  --add-module=../apisix-nginx-module/src/meta
   + make -j10 
 
+```
+lua {
+    lua_shared_dict dogs 1m;
+}
+http {
+
+    server {
+        listen 9991;
+        location /t {
+            content_by_lua_block {
+                ngx.shared.dogs:set("foo", "abcd")
+                print(ngx.shared.dogs:get("foo")) -- works
+             }
+        }
+
+    }
+}
+stream {
+    server {
+        listen 9992;
+        content_by_lua_block {
+            print(ngx.shared.dogs:get("foo")) -- works too!
+        }
+    }
+}
+```
