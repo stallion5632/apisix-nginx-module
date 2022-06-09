@@ -1,15 +1,12 @@
-# APISIX Nginx Module
+### this repository is a part of https://github.com/api7/apisix-nginx-module
 
-## Directive
+### To realize  the https://github.com/openresty/meta-lua-nginx-module/pull/76
 
-### apisix_delay_client_max_body_check [on|off]
+### how  to use
++ base openresty official 1.19.9.1 version
++ Follow the steps below:
+  + cd apisix-nginx-module/patch 
+  + ./patch.sh ThePathOfYourOpenRestySrcDirectory     
+  + /configure  --add-module=../apisix-nginx-module/src/meta
+  + make -j10 
 
-default: off
-
-Delay client_max_body_size check until the body is read.
-
-### apisix_mirror_on_demand [on|off]
-
-default: off
-
-Disable request mirror until we enable it in the Lua code.
