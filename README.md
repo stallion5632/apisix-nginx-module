@@ -8,8 +8,9 @@
   + cd apisix-nginx-module/patch 
   + ./patch.sh ThePathOfYourOpenRestySrcDirectory     
   + /configure  --add-module=../apisix-nginx-module/src/meta
-  + make -j10 
-
+  + make -j10
+  +  
+### 测试nginx.conf
 ```
 lua {
     lua_shared_dict dogs 1m;
