@@ -7,7 +7,7 @@
 + Follow the steps below:
   + cd apisix-nginx-module/patch 
   + ./patch.sh ThePathOfYourOpenRestySrcDirectory     
-  + /configure  --add-module=../apisix-nginx-module/src/meta
+  + cd openresty-1.19.9.1 && ./configure  --add-module=../apisix-nginx-module/src/meta
   + make -j10
   +  
 ### 测试nginx.conf
